@@ -1,5 +1,5 @@
-#Elasticsearch - Exercises
-##Exercise 1 - Using Docker, setup two containers for ElasticSearch and Kibana using the following images:
+# Elasticsearch - Exercises
+## Exercise 1 - Using Docker, setup two containers for ElasticSearch and Kibana using the following images:
 docker.elastic.co/elasticsearch/elasticsearch 
 docker.elastic.co/kibana/kibana
 
@@ -27,7 +27,7 @@ Now by using:
 >>docker ps
 You should be able to see both containers running
 
-##Exercise 2 - use the DevTools in Kibana and write some queries in Query DSL to:
+## Exercise 2 - use the DevTools in Kibana and write some queries in Query DSL to:
 * Add an index ‘books’
 * Add a few documents {“title”: “XYZ”, “author”: “XYZ”, “isbn”: “XYZ”}
 * List all the documents in the index
@@ -35,7 +35,7 @@ You should be able to see both containers running
 
 KibanaDevTools.txt contains the queries necessary for this exercise with comments.
 
-##Exercise 3 - create a Python web API to:
+## Exercise 3 - create a Python web API to:
 * Retrieve the list of documents form an index
 * Add a document to an index
 * Update a document
