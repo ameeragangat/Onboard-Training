@@ -1,0 +1,30 @@
+#Add an index 'books'
+PUT books?pretty
+
+#Add a few documents {“title”: “XYZ”, “author”: “XYZ”, “isbn”: “XYZ”}
+PUT /books/default/1
+{
+  "title": "XYZ", 
+  "author": "XYZ", 
+  "isbn": "XYZ"
+}
+
+#In order to link the documents to the index created, go to Stack Management >> Index Pattern and create an 
+#index pattern, search for the index name and add it
+
+#This request will verify that the index exists
+GET books/_search?pretty
+{
+    "query": {
+        "match_all": {}
+    }
+}
+
+POST /books/default/1
+{
+  "title": "XYZ", 
+  "author": "XYZ", 
+  "isbn": "ABC"
+}
+
+GET books/default/1
