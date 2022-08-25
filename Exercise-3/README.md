@@ -35,3 +35,10 @@ You should be able to see both containers running
 
 KibanaDevTools.txt contains the queries necessary for this exercise with comments.
 
+##Exercise 3 - create a Python web API to:
+* Retrieve the list of documents form an index
+* Add a document to an index
+* Update a document
+* Delete a document
+
+
