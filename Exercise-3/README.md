@@ -33,4 +33,5 @@ You should be able to see both containers running
 * List all the documents in the index
 * Update a single document’s ISBN field only
 
+KibanaDevTools.txt contains the queries necessary for this exercise with comments.
 
