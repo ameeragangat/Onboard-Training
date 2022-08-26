@@ -2,7 +2,7 @@
 PUT books?pretty
 
 #Add a few documents {“title”: “XYZ”, “author”: “XYZ”, “isbn”: “XYZ”}
-PUT /books/default/1
+PUT /books/_doc/1
 {
   "title": "XYZ", 
   "author": "XYZ", 
@@ -20,11 +20,30 @@ GET books/_search?pretty
     }
 }
 
-POST /books/default/1
+# another way to see the index and data
+GET books/_doc/1
+
+# use _update to add/remove or change a document field using doc or script commands
+
+POST books/_update/1
 {
-  "title": "XYZ", 
-  "author": "XYZ", 
-  "isbn": "ABC"
+  "doc": {"isbn" : "ABC"}
 }
 
-GET books/default/1
+# add new field
+POST books/_update/1
+{
+  "script" : "ctx._source.name = 'ameera'"
+}
+
+# remove a field
+POST books/_update/1
+{
+  "script" : "ctx._source.remove('name')"
+}
+
+# update a field
+POST books/_update/1
+{
+  "script" : "ctx._source.isbn = 'HIJ'"
+}
