@@ -1,3 +1,5 @@
+# The contents in this file were copy and pasted from the Kibana console tab in DevTools
+
 #Add an index 'books'
 PUT books?pretty
 
