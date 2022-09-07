@@ -11,7 +11,7 @@ from pydantic import BaseModel
 from elasticsearch import Elasticsearch
 
 # you can use RFC-1738 to specify the url
-es = Elasticsearch(['http://localhost:9200'])
+es = Elasticsearch(['http://elasticsearch:9200'])
 
 class Item(BaseModel):
     body: dict
