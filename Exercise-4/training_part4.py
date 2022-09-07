@@ -29,7 +29,7 @@ def create_index(index: str, id: int, item: Item):
 #To return all documents for a given index
 @app.get("/index_docs")
 def index_docs(index: str, id:int):
-    return {"index_docs": es.get(index=index, doc_type="_doc", id=id)['_source']}
+    return es.get(index=index, doc_type="_doc", id=id)['_source']
 
 
 #Add a document to an index
