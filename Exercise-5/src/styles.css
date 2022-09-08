@@ -1,0 +1,12 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+/* This code adds some margin between the header and the content of the page */
+.container{
+  margin-top:5%;
+}
+
+/* Adjust the size of the Font-Awesome icons */
+.fa{
+  font-size: 50px;
+}
