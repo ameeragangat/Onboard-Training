@@ -1,19 +1,173 @@
 <div class="container">
-    <table class="table table-bordered table-striped">
-      <thead>
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>ISBN</th>
-      </tr>
-      </thead>
-      <tbody>
-      <!--Iterate through the books list using ngFor and display each record in HTML table row-->  
-      <tr *ngFor="let book of books">
-        <td><span>{{book.author}}</span></td>
-        <td><span>{{book.title}}</span></td>
-        <td><span>{{book.isbn}}</span></td>
-      </tr>
-      </tbody>
-    </table>
+  <div class="border">
+    <button class="btn btn-md btn-outline-primary" (click)="open(contentAdd)">
+      <i class="fa fa-book"></i>New Book</button>
   </div>
+  <br>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>ISBN</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <!--Iterate through the books list using ngFor and display each record in HTML table row-->  
+    <tr class="mat-row" *ngFor="let book of books;" (click)="editBook(book)">
+      <td><span>{{book.title}}</span></td>
+      <td><span>{{book.author}}</span></td>
+      <td><span>{{book.isbn}}</span></td>
+    <!--
+    <td>
+      <button class="btn btn-sm btn-info" (click)="openDetails(contentDetails, book)">
+        <i class="fa fa-search"></i>Details</button>
+    </td>
+  -->
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #contentAdd let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New Book</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="addForm">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <div class="input-group">
+          <input type="text" id="title" placeholder="Book Title.." formControlName="title">
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="author">Author</label>
+        <div class="input-group">
+          <input type="text" id="author" placeholder="Author Name.." formControlName="author">
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="isbn">ISBN</label>
+        <div class="input-group">
+          <input type="text" id="isbn" placeholder="ISBN should have a minimum of 10 characters.." formControlName="isbn">
+        </div>
+      </div>
+      <br>
+      <div class="border text-center">
+        <button data-dismiss="modal" class="btn btn-info" (click)="onSave(addForm)">Submit</button>
+      </div>
+    </form>  
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+  </div>
+</ng-template>
+
+<!--
+<ng-template #contentDetails let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title1">Book Detail</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label>Title</label>
+        <div class="input-group">
+          <input id="Title" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Author</label>
+        <div class="input-group">
+          <input id="Author" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>ISBN</label>
+        <div class="input-group">
+          <input id="ISBN" class="form-control" readonly>
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>
+-->
+
+<!--
+<ng-template #contentAdd let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title2">New Book</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="addForm" novalidate>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <div class="input-group">
+          <input type="text" id="title_rf" placeholder="Book Title.." formControlName="title">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="author">Author</label>
+        <div class="input-group">
+          <input type="text" id="author_rf" placeholder="Author Name.." formControlName="author">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="isbn">ISBN</label>
+        <div class="input-group">
+          <input type="text" id="isbn_rf" placeholder="ISBN.." formControlName="isbn">
+        </div>
+      </div>
+      <div class="border text-center">
+        <button data-dismiss="modal" class="btn btn-info">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+  </div>
+</ng-template>
+-->
+
+<!--    
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <div class="input-group">
+          <input id="title" name ="title" class="form-control" ngModel >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="author">Author</label>
+        <div class="input-group">
+          <input id="author" name="author" class="form-control" ngModel >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="isbn">ISBN</label>
+        <div class="input-group">
+          <input id="isbn" name="isbn" class="form-control" ngModel >
+        </div>
+      </div>
+      <div class="border text-center">
+        <button data-dismiss="modal" class="btn btn-info">Submit</button>
+      </div>
+    </form>
+-->

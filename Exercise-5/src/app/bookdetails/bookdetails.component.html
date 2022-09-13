@@ -1,3 +1,4 @@
+<!--
 <div class = "form">
     <form [formGroup]="reactiveForm">
       <label for="title">Title</label>
@@ -12,11 +13,33 @@
       <input type="text" id="isbn" formControlName="isbn" readonly>
       <br>
 
-      <!--
+      
       <label for="bookSummary">Book Summary</label>
       <input type="text" id="bookSummary" formControlName="bookSummary">
-      -->
+      
     
-      <input type="close" value="Submit" id="btn btn-outline-dark">
+      <input type="close" value="Close" id="btn btn-outline-dark">
     </form>
   </div>
+-->
+<!--
+<div class="container">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>ISBN</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="mat-row" *ngFor="let book of books;">
+        <td><span>{{book.title}}</span></td>
+        <td><span>{{book.author}}</span></td>
+        <td><span>{{book.isbn}}</span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+-->
+
