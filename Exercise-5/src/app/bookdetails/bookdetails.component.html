@@ -1,0 +1,22 @@
+<div class = "form">
+    <form [formGroup]="reactiveForm">
+      <label for="title">Title</label>
+      <input type="text" id="title" formControlName="title" readonly>
+      <br>
+  
+      <label for="author">Author</label>
+      <input type="text" id="author" formControlName="author" readonly>
+      <br>
+  
+      <label for="isbn">ISBN</label>
+      <input type="text" id="isbn" formControlName="isbn" readonly>
+      <br>
+
+      <!--
+      <label for="bookSummary">Book Summary</label>
+      <input type="text" id="bookSummary" formControlName="bookSummary">
+      -->
+    
+      <input type="close" value="Submit" id="btn btn-outline-dark">
+    </form>
+  </div>
