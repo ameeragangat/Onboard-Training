@@ -4,4 +4,4 @@ curl -XGET localhost:8080/divide?dividend=20&divisor=5
 curl -XPOST localhost:8080 -H'Content-Type: application/json' -d'{"dividend": 20, "divisor": 5}'
 Response = {quotient: 4} 
 
-To run the file from a terminal window use uvicorn training_part1:app --reload
+To run the file from a terminal window, navigate to the relevant directory and execute the following command >> python training_part1.py
