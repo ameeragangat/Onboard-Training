@@ -9,6 +9,7 @@ Created on Fri Aug 26 10:43:52 2022
 from fastapi import FastAPI
 from pydantic import BaseModel
 from elasticsearch import Elasticsearch
+import uvicorn
 
 # you can use RFC-1738 to specify the url
 es = Elasticsearch(['http://localhost:9200'])
@@ -45,3 +46,6 @@ def update_docs(index:str, doc_field:str, doc_value:str, id:int):
 @app.get("/delete_doc")
 def delete_docs(index:str, doc_field:str, id:int):
     return {"delete_doc": es.update(index='books',doc_type='_doc',id=id,body={"script" : f"ctx._source.remove('{doc_field}')"})}
+
+if __name__ == "__main__":
+    uvicorn.run("training_part3:app", host="0.0.0.0", port=4321, reload=True)
