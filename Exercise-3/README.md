@@ -42,5 +42,5 @@ KibanaDevTools.txt contains the queries necessary for this exercise with comment
 * Delete a document
 
 Ensure that your Elasticsearch and Kibana containers are still running if you would like to navigate and inspect the created indexes with documents
-To run the file from a terminal window use uvicorn training_part4:app --reload
-Navigate to the local host/8000/docs# link to view the webapi page
+To run the file from a terminal window use the following command >> python training_part3.py
+Navigate to localhost/4321/docs# link to view the webapi page
