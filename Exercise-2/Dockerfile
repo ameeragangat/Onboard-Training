@@ -9,7 +9,7 @@ COPY requirements.txt .
 
 RUN python3 -m pip install -r requirements.txt
 
-WORKDIR /Users/ameeragangat/Documents/Onboard-Training/Exercise-2
+WORKDIR ./
 
 COPY training_part1.py training_part1.py 
 
