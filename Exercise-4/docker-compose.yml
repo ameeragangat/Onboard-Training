@@ -25,7 +25,9 @@ services:
     container_name: fastapi-container
     image: dockerfastapielastickibana
     ports:
-      - 4321:4321      
+      - 4321:4321
+    networks:
+      - ek-net            
 networks:
   ek-net:
     driver: bridge

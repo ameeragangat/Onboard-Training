@@ -8,7 +8,7 @@ COPY requirements.txt .
 
 RUN python3 -m pip install -r requirements.txt
 
-WORKDIR /Users/ameeragangat/Documents/Exercise-4
+WORKDIR /Users/ameeragangat/Documents/docker_fastapi-elastic-kibana
 
 COPY training_part4.py training_part4.py 
 
