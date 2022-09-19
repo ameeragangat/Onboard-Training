@@ -1,29 +1,4 @@
-<!--
-<div class = "form">
-    <form [formGroup]="reactiveForm">
-      <label for="title">Title</label>
-      <input type="text" id="title" formControlName="title" readonly>
-      <br>
-  
-      <label for="author">Author</label>
-      <input type="text" id="author" formControlName="author" readonly>
-      <br>
-  
-      <label for="isbn">ISBN</label>
-      <input type="text" id="isbn" formControlName="isbn" readonly>
-      <br>
-
-      
-      <label for="bookSummary">Book Summary</label>
-      <input type="text" id="bookSummary" formControlName="bookSummary">
-      
-    
-      <input type="close" value="Close" id="btn btn-outline-dark">
-    </form>
-  </div>
--->
-<!--
-<div class="container">
+<!-- <div class="container">
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
@@ -32,7 +7,7 @@
         <th>ISBN</th>
       </tr>
       </thead>
-      <tbody>
+      <tbody> 
       <tr class="mat-row" *ngFor="let book of books;">
         <td><span>{{book.title}}</span></td>
         <td><span>{{book.author}}</span></td>
@@ -40,6 +15,29 @@
       </tr>
       </tbody>
     </table>
-  </div>
--->
+  </div> -->
+
+<div class="container">
+    <h1>Book Details</h1>
+    <div class = "formcontainer">
+        <form [formGroup]="rform" (ngSubmit)="send()">
+            <div class="form-group">
+                <label>Title</label>
+                <input class="form-control" formControlName="Title" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Author</label>
+                <input class="form-control" formControlName="Author" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>ISBN</label>
+                <input class="form-control" formControlName="ISBN" readonly>
+            </div>
+            <br>   
+            <button type="submit" class="btn btn-primary">Close</button>
+        </form>
+    </div>
+</div> 
 

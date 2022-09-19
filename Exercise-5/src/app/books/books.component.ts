@@ -9,6 +9,7 @@ export class Books {
     public title: string,
     public author: string,
     public isbn: string,
+    public id: string,
   ){
   }
 }
@@ -75,16 +76,7 @@ export class BooksComponent implements OnInit {
     }
   }
 
-  /*
-  onSubmit(f: NgForm) {
-    const url = 'http://localhost:4321/docs#/default/add_docs_add_doc_get';
-    this.httpClient.post(url, f.value)
-      .subscribe((result) => {
-        this.ngOnInit(); //reload the table
-      });
-    this.modalService.dismissAll(); //dismiss the modal
-  }
-  
+/*
   openDetails(targetModal, book: Books) {
     this.modalService.open(targetModal, {
      centered: true,
@@ -108,28 +100,25 @@ export class BooksComponent implements OnInit {
 
 onSave(f:FormGroup){
   const url = 'http://localhost:4321/create_index_new?index=books';
-
-  this.httpClient.post(url,f.value).subscribe(
-    response => {
-      console.log(response);
-    }
-  );
-  /*
-  this.httpClient.post(url, f.value)
-    .subscribe((result) => {
+  
+  this.httpClient.post(url, f.value).subscribe((result) => {
       this.ngOnInit(); //reload the table
+      console.log(f.value);
     });
   this.modalService.dismissAll(); //dismiss the modal
-  */
+
+  // Refresh the page to display the new document added
+  this.reloadCurrentPage();
+
 }
 
-onSubmit(){
-  console.log(this.addForm);
-}
+reloadCurrentPage() {
+  window.location.reload();
+ }
 
 editBook(book: Books) {
   let route = '/bookdetails';
-  this.router.navigate([route], { queryParams: { id: book.isbn } });
+  this.router.navigate([route], { queryParams: { id: book.id } });
 }
 
 }
